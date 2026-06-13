@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NayePankh Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink:       #0f0f0d;
+    --ink-soft:  #5a5a54;
+    --ink-faint: #a8a8a0;
+    --paper:     #fafaf7;
+    --paper-warm:#f2f0eb;
+    --gold:      #c9a84c;
+    --gold-pale: #f5edda;
+    --rule:      rgba(15,15,13,0.08);
+    --ff-disp:   'DM Serif Display', Georgia, serif;
+    --ff-body:   'Inter', system-ui, sans-serif;
+    --ff-mono:   'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--ff-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+    background: rgba(250,250,247,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-brand {
+    font-family: var(--ff-disp);
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-brand span {
+    color: var(--gold);
+  }
+
+  .nav-links {
+    display: flex; gap: 36px; list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  .nav-cta {
+    background: var(--ink);
+    color: var(--paper) !important;
+    padding: 9px 22px;
+    border-radius: 2px;
+    font-size: 12px !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .nav-cta:hover { background: var(--gold); color: var(--ink) !important; }
+
+  /* ── HERO ───────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 64px;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 64px 80px 80px;
+    border-right: 1px solid var(--rule);
+  }
+
+  .hero-eyebrow {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+
+  .hero-headline {
+    font-family: var(--ff-disp);
+    font-size: clamp(42px, 4.5vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 440px;
+    margin-bottom: 48px;
+  }
+
+  .hero-actions {
+    display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--gold); color: var(--ink); }
+
+  .btn-ghost {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+
+  .btn-ghost:hover { color: var(--ink); }
+  .btn-ghost::after { content: '↓'; }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 80px 80px 64px;
+    background: var(--paper-warm);
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+
+  .stat-cell {
+    background: var(--paper-warm);
+    padding: 36px 32px;
+    position: relative;
+  }
+
+  .stat-number {
+    font-family: var(--ff-disp);
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .stat-number span {
+    color: var(--gold);
+    font-size: 32px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .hero-quote {
+    margin-top: 40px;
+    padding: 28px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .hero-quote p {
+    font-family: var(--ff-disp);
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  .hero-quote cite {
+    display: block;
+    font-family: var(--ff-body);
+    font-style: normal;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 12px;
+  }
+
+  /* ── ABOUT ──────────────────────────────── */
+  .about {
+    padding: 120px 80px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 80px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .about-sidebar {}
+
+  .section-tag {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .sidebar-title {
+    font-family: var(--ff-disp);
+    font-size: 36px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .sidebar-note {
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--ink-faint);
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+    border-left: 2px solid var(--gold);
+    padding-left: 14px;
+  }
+
+  .about-content {}
+
+  .about-lead {
+    font-size: 20px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 40px;
+  }
+
+  .cause-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .cause-item {
+    padding: 28px;
+    border: 1px solid var(--rule);
+    background: var(--paper-warm);
+    border-radius: 2px;
+  }
+
+  .cause-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .cause-title {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+  }
+
+  .cause-desc {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* ── DIVIDER ─────────────────────────────── */
+  .gold-band {
+    background: var(--gold);
+    color: var(--ink);
+    padding: 36px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .gold-band p {
+    font-family: var(--ff-disp);
+    font-size: 24px;
+    letter-spacing: -0.01em;
+  }
+
+  .gold-band a {
+    flex-shrink: 0;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border-radius: 2px;
+    transition: opacity 0.2s;
+  }
+
+  .gold-band a:hover { opacity: 0.8; }
+
+  /* ── REPORT ──────────────────────────────── */
+  #report {
+    padding: 120px 80px;
+    background: var(--paper-warm);
+    border-top: 1px solid var(--rule);
+  }
+
+  .report-header {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 80px;
+    margin-bottom: 80px;
+    align-items: start;
+  }
+
+  .report-title-block {}
+
+  .report-title {
+    font-family: var(--ff-disp);
+    font-size: 42px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .report-date {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.1em;
+  }
+
+  .report-intro {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    max-width: 560px;
+    align-self: end;
+  }
+
+  .report-body {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 80px;
+  }
+
+  .report-toc {
+    position: sticky;
+    top: 84px;
+    align-self: start;
+  }
+
+  .toc-label {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .toc-list a {
+    display: block;
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding: 6px 0 6px 14px;
+    border-left: 2px solid var(--rule);
+    transition: all 0.2s;
+  }
+
+  .toc-list a:hover {
+    color: var(--ink);
+    border-left-color: var(--gold);
+    padding-left: 18px;
+  }
+
+  .report-content {
+    max-width: 680px;
+  }
+
+  .report-section {
+    margin-bottom: 72px;
+  }
+
+  .rs-number {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .rs-title {
+    font-family: var(--ff-disp);
+    font-size: 28px;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .rs-body {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ink-soft);
+  }
+
+  .rs-body p { margin-bottom: 16px; }
+  .rs-body p:last-child { margin-bottom: 0; }
+
+  .rs-body strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 28px 0;
+  }
+
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 24px;
+  }
+
+  .card-tag {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .card-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+
+  .card-body {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  .highlight-box {
+    background: var(--gold-pale);
+    border-left: 3px solid var(--gold);
+    padding: 24px 28px;
+    margin: 28px 0;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .highlight-box p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink);
+    margin: 0 !important;
+  }
+
+  .website-analysis {
+    margin: 28px 0;
+  }
+
+  .issue-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: start;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .issue-badge {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+
+  .badge-critical { background: #fde8e8; color: #c0392b; }
+  .badge-major    { background: #fef3cd; color: #956d00; }
+  .badge-minor    { background: #e8f5e9; color: #27703a; }
+
+  .issue-text {}
+  .issue-text strong { color: var(--ink); font-weight: 600; font-size: 14px; display: block; margin-bottom: 4px; }
+  .issue-text span   { font-size: 13px; color: var(--ink-soft); line-height: 1.6; }
+
+  .feature-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .feature-number {
+    font-family: var(--ff-mono);
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 500;
+    width: 28px;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+
+  .feature-content strong { 
+    display: block; 
+    font-size: 14px; 
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .feature-content p { 
+    font-size: 13px; 
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0 !important;
+  }
+
+  /* ── FOOTER ──────────────────────────────── */
+  footer {
+    padding: 48px 80px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .footer-brand {
+    font-family: var(--ff-disp);
+    font-size: 18px;
+    color: var(--ink);
+  }
+
+  .footer-brand span { color: var(--gold); }
+
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    color: var(--ink-faint);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--ink); }
+
+  .footer-note {
+    font-size: 11px;
+    color: var(--ink-faint);
+  }
+
+  /* ── RESPONSIVE ──────────────────────────── */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { gap: 20px; }
+    .nav-links li:nth-child(-n+2) { display: none; }
+
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 60px 24px 40px; border-right: none; border-bottom: 1px solid var(--rule); }
+    .hero-right { padding: 40px 24px 60px; }
+
+    .about, .report-header, .report-body { grid-template-columns: 1fr; gap: 40px; }
+    .about { padding: 60px 24px; }
+    .report-toc { position: static; }
+
+    #report { padding: 60px 24px; }
+    .report-header { margin-bottom: 40px; }
+
+    .card-grid { grid-template-columns: 1fr; }
+    .cause-list { grid-template-columns: 1fr; }
+
+    .gold-band { padding: 28px 24px; flex-direction: column; text-align: center; }
+    footer { flex-direction: column; text-align: center; padding: 36px 24px; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-brand" href="#"><span>नये</span>पंख</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#report">Report</a></li>
+    <li><a href="https://nayepankh.com/donate" target="_blank">Donate</a></li>
+    <li><a href="https://nayepankh.com/contact-us" target="_blank" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">UP Govt. Registered · 80G &amp; 12A · Est. 2020</p>
+    <h1 class="hero-headline">Giving <em>wings</em> to the underprivileged.</h1>
+    <p class="hero-sub">NayePankh Foundation is one of India's largest student-led NGOs — working across Kanpur, Ghaziabad, and beyond to deliver food, education, sanitation, and dignity to those who need it most.</p>
+    <div class="hero-actions">
+      <a href="https://nayepankh.com/donate" target="_blank" class="btn-primary">Donate Now</a>
+      <a href="#report" class="btn-ghost">Read the Report</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stat-grid">
+      <div class="stat-cell">
+        <div class="stat-number">2L<span>+</span></div>
+        <div class="stat-label">People Helped</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">30K<span>+</span></div>
+        <div class="stat-label">Interns Trained</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">4<span>+</span></div>
+        <div class="stat-label">Active Cities</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">80G</div>
+        <div class="stat-label">Tax Exempt Donations</div>
+      </div>
+    </div>
+    <div class="hero-quote">
+      <p>"If we all do something, then together there is no problem that we cannot solve."</p>
+      <cite>— Prashant Shukla, Founder &amp; President</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section class="about" id="about">
+  <div class="about-sidebar">
+    <span class="section-tag">Who We Are</span>
+    <h2 class="sidebar-title">Think global.<br>Act local.</h2>
+    <p class="sidebar-note">Featured in The Pioneer, Dainik Jagran, and Hindustan. Affiliated with NITI Aayog.</p>
+  </div>
+
+  <div class="about-content">
+    <p class="about-lead">Born during the Covid pandemic in 2020, NayePankh started as a crisis response and grew into a movement — a student-run engine of grassroots change that runs on belief, not budgets alone.</p>
+    <div class="cause-list">
+      <div class="cause-item">
+        <div class="cause-icon">🍱</div>
+        <div class="cause-title">Food Distribution</div>
+        <p class="cause-desc">Free meals for the hungry — including stray animals. No one is left behind.</p>
+      </div>
+      <div class="cause-item">
+        <div class="cause-icon">📚</div>
+        <div class="cause-title">Education</div>
+        <p class="cause-desc">Bridging the learning gap for underprivileged children across urban and semi-urban India.</p>
+      </div>
+      <div class="cause-item">
+        <div class="cause-icon">🩺</div>
+        <div class="cause-title">Menstrual Hygiene</div>
+        <p class="cause-desc">Sanitary pads and awareness campaigns, fighting stigma one community at a time.</p>
+      </div>
+      <div class="cause-item">
+        <div class="cause-icon">👕</div>
+        <div class="cause-title">Clothing Drives</div>
+        <p class="cause-desc">Distributing clothes to families who cannot afford basic necessities through seasonal drives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GOLD BAND ── -->
+<div class="gold-band">
+  <p>Your donation is 80G tax-exempt. Every rupee counts.</p>
+  <a href="https://nayepankh.com/donate" target="_blank">Contribute Today</a>
+</div>
+
+<!-- ── REPORT ── -->
+<section id="report">
+  <div class="report-header">
+    <div class="report-title-block">
+      <span class="section-tag">Internship Report</span>
+      <h2 class="report-title">AI Tools &amp; NayePankh</h2>
+      <p class="report-date">June 2025 · Vibe Coder Internship</p>
+    </div>
+    <p class="report-intro">This report examines how AI coding tools can accelerate NayePankh Foundation's digital presence, automate operations, and open new channels for impact — including an analysis of the current website with specific, actionable recommendations.</p>
+  </div>
+
+  <div class="report-body">
+
+    <aside class="report-toc">
+      <span class="toc-label">Contents</span>
+      <ul class="toc-list">
+        <li><a href="#s1">01 — AI for NGOs</a></li>
+        <li><a href="#s2">02 — Projects to Build Fast</a></li>
+        <li><a href="#s3">03 — Recommended Project</a></li>
+        <li><a href="#s4">04 — How It Works</a></li>
+        <li><a href="#s5">05 — Website Analysis</a></li>
+        <li><a href="#s6">06 — Improvements</a></li>
+      </ul>
+    </aside>
+
+    <div class="report-content">
+
+      <!-- S1 -->
+      <div class="report-section" id="s1">
+        <span class="rs-number">01</span>
+        <h3 class="rs-title">How AI Coding Tools Can Help NayePankh Foundation</h3>
+        <div class="rs-body">
+          <p>NayePankh operates with a lean, student-driven team. Time is the scarcest resource. AI coding tools — GitHub Copilot, Claude, Cursor, Replit AI — don't just write code faster; they collapse the distance between an idea and a working product from weeks to hours.</p>
+          <p>For an NGO like NayePankh, this means <strong>no-code or low-code barriers disappear</strong>. A volunteer with basic tech knowledge can use AI to build a donor management dashboard, automate WhatsApp volunteer updates, or create multilingual content in Hindi and English — without a full engineering team.</p>
+          <div class="card-grid">
+            <div class="card">
+              <div class="card-tag">Speed</div>
+              <div class="card-title">10× Faster Development</div>
+              <p class="card-body">AI writes boilerplate, handles API integrations, and debugs — cutting a 3-week project to 3 days.</p>
+            </div>
+            <div class="card">
+              <div class="card-tag">Cost</div>
+              <div class="card-title">Near-Zero Overhead</div>
+              <p class="card-body">Students and volunteers can build production-grade tools without hiring developers.</p>
+            </div>
+            <div class="card">
+              <div class="card-tag">Scale</div>
+              <div class="card-title">Reach 30K+ Interns</div>
+              <p class="card-body">Automate onboarding, certificate generation, and feedback — handling thousands at once.</p>
+            </div>
+            <div class="card">
+              <div class="card-tag">Multilingual</div>
+              <div class="card-title">Hindi + English</div>
+              <p class="card-body">AI translates and localises content instantly, reaching communities in their native language.</p>
+            </div>
+          </div>
+          <p>Tools like Claude can also help write grant applications, social media copy, and donor outreach emails — compressing weeks of communication work into minutes.</p>
+        </div>
+      </div>
+
+      <!-- S2 -->
+      <div class="report-section" id="s2">
+        <span class="rs-number">02</span>
+        <h3 class="rs-title">Projects That Can Be Built Quickly Using AI</h3>
+        <div class="rs-body">
+          <p>The following are high-impact digital tools that a single intern with AI assistance could realistically ship within 1–2 weeks:</p>
+
+          <div class="feature-row">
+            <span class="feature-number">A</span>
+            <div class="feature-content">
+              <strong>Automated Internship Certificate System</strong>
+              <p>Interns submit task completion → AI validates → PDF certificate auto-generated and emailed. Saves hundreds of manual hours per batch.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="feature-number">B</span>
+            <div class="feature-content">
+              <strong>WhatsApp Chatbot for Volunteer Coordination</strong>
+              <p>Powered by Twilio + AI: handles FAQs, sends task reminders, collects field reports, and escalates issues — 24/7, in Hindi and English.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="feature-number">C</span>
+            <div class="feature-content">
+              <strong>AI-Powered Donor Dashboard</strong>
+              <p>A clean, real-time portal where donors see impact metrics, donation history, and 80G tax receipts — all auto-generated.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="feature-number">D</span>
+            <div class="feature-content">
+              <strong>Field Report Aggregator</strong>
+              <p>Volunteers photo-log drives on a mobile form. AI extracts data, maps locations, and creates shareable impact reports for social media.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="feature-number">E</span>
+            <div class="feature-content">
+              <strong>Multilingual Fundraising Landing Page</strong>
+              <p>A modern, fast-loading page optimised for donations with Hindi/English toggle, A/B tested headlines, and integrated payment gateway.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S3 -->
+      <div class="report-section" id="s3">
+        <span class="rs-number">03</span>
+        <h3 class="rs-title">Recommended Project: Smart Internship Portal</h3>
+        <div class="rs-body">
+          <p>Of all possible builds, the <strong>Smart Internship &amp; Volunteer Portal</strong> offers the single highest return on effort for NayePankh right now.</p>
+          <div class="highlight-box">
+            <p>NayePankh has trained over <strong>30,000+ interns</strong>. Managing tasks, tracking submissions, issuing certificates, and answering queries for this volume — manually — is an operational bottleneck that limits growth. An AI-powered portal eliminates this ceiling entirely.</p>
+          </div>
+          <p>The portal would centralise the entire intern lifecycle: from application to task assignment, progress tracking, certificate generation, and alumni engagement — with AI handling the repetitive middle layers so coordinators can focus on high-impact decisions.</p>
+          <p>It also creates a <strong>data asset</strong>: rich analytics on intern performance, geographic distribution, cause engagement, and task completion — invaluable for grant applications and press features.</p>
+        </div>
+      </div>
+
+      <!-- S4 -->
+      <div class="report-section" id="s4">
+        <span class="rs-number">04</span>
+        <h3 class="rs-title">How the Smart Internship Portal Works</h3>
+        <div class="rs-body">
+          <p>The system is designed as a three-layer architecture that any intern with a week of AI-assisted development could deploy:</p>
+
+          <div class="feature-row">
+            <span class="feature-number">1</span>
+            <div class="feature-content">
+              <strong>Intern Onboarding — AI Form + Auto-Email</strong>
+              <p>Intern fills a form (Typeform / Google Form). AI reads the response, assigns them a task track (Education / Food / Hygiene), and sends a personalised welcome email with their task brief within minutes.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="feature-number">2</span>
+            <div class="feature-content">
+              <strong>Task Tracking Dashboard</strong>
+              <p>A lightweight React + Firebase dashboard. Interns log daily tasks, upload proof photos. Coordinators see progress at a glance. AI flags incomplete or suspicious submissions for human review.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="feature-number">3</span>
+            <div class="feature-content">
+              <strong>Certificate Auto-Generation</strong>
+              <p>On task completion, a Python script (built with AI) generates a personalised PDF certificate using intern's name, task type, and dates — then emails it automatically. Zero manual work per certificate.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="feature-number">4</span>
+            <div class="feature-content">
+              <strong>AI Support Chatbot</strong>
+              <p>A Claude-powered chatbot on the portal answers FAQ: "When do I get my certificate?", "What's my task?", "How do I submit?" — freeing coordinators from repetitive queries 24/7.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="feature-number">5</span>
+            <div class="feature-content">
+              <strong>Impact Analytics</strong>
+              <p>Monthly auto-generated PDF reports: how many meals distributed, cities covered, interns active. Ready to share with media, donors, and NITI Aayog — designed for credibility.</p>
+            </div>
+          </div>
+          <p style="margin-top: 24px;"><strong>Stack:</strong> Next.js frontend · Firebase database · Python (FastAPI) for certificate generation · Claude API for chatbot · Resend for transactional email · Vercel for hosting (free tier). <strong>Estimated build time with AI:</strong> 5–7 days.</p>
+        </div>
+      </div>
+
+      <!-- S5 -->
+      <div class="report-section" id="s5">
+        <span class="rs-number">05</span>
+        <h3 class="rs-title">Current Website Analysis — nayepankh.com</h3>
+        <div class="rs-body">
+          <p>The current website at <strong>nayepankh.com</strong> was built using Hostinger's Zyro website builder — a sensible starting point, but one that now constrains the organisation's digital credibility and conversion performance.</p>
+          <div class="website-analysis">
+            <div class="issue-item">
+              <span class="issue-badge badge-critical">Critical</span>
+              <div class="issue-text">
+                <strong>No internship management system</strong>
+                <span>With 30,000+ interns trained, there is zero digital infrastructure for applications, task tracking, or certificate issuance. Everything appears to be handled manually — an enormous operational burden and a credibility gap for a top-tier NGO.</span>
+              </div>
+            </div>
+            <div class="issue-item">
+              <span class="issue-badge badge-critical">Critical</span>
+              <div class="issue-text">
+                <strong>Donation flow is under-optimised</strong>
+                <span>The donate page is minimal with no social proof, no impact counters, and no post-donation acknowledgement flow. Donors have no visibility into where their money goes — the single most important factor in repeat donations.</span>
+              </div>
+            </div>
+            <div class="issue-item">
+              <span class="issue-badge badge-major">Major</span>
+              <div class="issue-text">
+                <strong>Mobile experience is mediocre</strong>
+                <span>The site is built with a drag-and-drop tool; on mobile, images are cropped poorly, text overflows on smaller screens, and CTA buttons are undersized for thumb navigation. This matters — most visitors are on mobile in India.</span>
+              </div>
+            </div>
+            <div class="issue-item">
+              <span class="issue-badge badge-major">Major</span>
+              <div class="issue-text">
+                <strong>No real impact data visible</strong>
+                <span>Claims of "2 lakh people helped" appear only as static text with no supporting visuals, breakdowns, or verification — reducing trust. Donors and interns can't see what their contribution achieved.</span>
+              </div>
+            </div>
+            <div class="issue-item">
+              <span class="issue-badge badge-major">Major</span>
+              <div class="issue-text">
+                <strong>SEO is weak</strong>
+                <span>Built on Zyro/Hostinger builder with generic meta-descriptions, no structured data (schema markup), no blog, and no content strategy. The organisation has a powerful story — it's simply invisible to Google.</span>
+              </div>
+            </div>
+            <div class="issue-item">
+              <span class="issue-badge badge-minor">Minor</span>
+              <div class="issue-text">
+                <strong>Visual design feels generic</strong>
+                <span>The site uses stock-adjacent templates with inconsistent font sizing, low-resolution imagery, and no clear visual hierarchy. It doesn't communicate the organisation's energy and scale.</span>
+              </div>
+            </div>
+            <div class="issue-item">
+              <span class="issue-badge badge-minor">Minor</span>
+              <div class="issue-text">
+                <strong>No Hindi language option</strong>
+                <span>Operating primarily in Kanpur and Ghaziabad — Hindi-belt cities — yet the entire site is in English. A simple language toggle would dramatically expand reach with local beneficiaries and donors.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S6 -->
+      <div class="report-section" id="s6">
+        <span class="rs-number">06</span>
+        <h3 class="rs-title">Suggested Improvements</h3>
+        <div class="rs-body">
+          <p>In priority order, here are the highest-leverage improvements the foundation should make — most achievable within days using AI coding tools:</p>
+
+          <div class="feature-row">
+            <span class="feature-number">P1</span>
+            <div class="feature-content">
+              <strong>Rebuild on a performant, custom platform</strong>
+              <p>Migrate from Zyro to Next.js hosted on Vercel (free). This gives full design control, faster load speeds, SEO capability, and the ability to plug in any custom tool — internship portal, chatbot, donation tracker. Claude can generate the full codebase.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="feature-number">P2</span>
+            <div class="feature-content">
+              <strong>Add a live impact counter to the homepage</strong>
+              <p>Display real-time or periodically-updated numbers: meals served, people helped, cities active, interns this month. Animated counters build trust and emotional connection at first glance. Builds in 2 hours with AI.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="feature-number">P3</span>
+            <div class="feature-content">
+              <strong>Build the internship portal (see Section 03–04)</strong>
+              <p>This is the highest ROI project. Every coordinator hour saved scales the organisation's capacity. The portal also becomes a recruitment tool — prospective interns see a professional system, not a WhatsApp number.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="feature-number">P4</span>
+            <div class="feature-content">
+              <strong>Redesign the donation experience</strong>
+              <p>Add donor testimonials, breakdown of where ₹100 / ₹500 / ₹1000 goes, post-donation thank-you page with social share, and auto-generated 80G tax receipt email. This alone can increase repeat donation rates significantly.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="feature-number">P5</span>
+            <div class="feature-content">
+              <strong>Add a Hindi/English language toggle</strong>
+              <p>Using i18next in Next.js (AI-assisted setup: ~4 hours), flip all site content to Hindi for local audiences. Critical for beneficiary outreach in UP cities.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <span class="feature-number">P6</span>
+            <div class="feature-content">
+              <strong>Start a blog / field reports section</strong>
+              <p>Monthly posts about drives, impact stories, and intern experiences — AI-drafted from coordinator notes. This feeds SEO, social content, and donor newsletters simultaneously. One post = three assets.</p>
+            </div>
+          </div>
+
+          <div class="highlight-box" style="margin-top: 32px;">
+            <p>The single most powerful thing NayePankh can do digitally is make its impact <strong>visible, verifiable, and shareable</strong>. The organisation does extraordinary work. The website should make that impossible to miss in the first five seconds.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /report-content -->
+  </div><!-- /report-body -->
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-brand"><span>नये</span>पंख Foundation</div>
+  <ul class="footer-links">
+    <li><a href="https://nayepankh.com" target="_blank">nayepankh.com</a></li>
+    <li><a href="https://nayepankh.com/donate" target="_blank">Donate</a></li>
+    <li><a href="https://www.instagram.com/nayepankhfoundation" target="_blank">Instagram</a></li>
+    <li><a href="https://www.linkedin.com/company/nayepankh" target="_blank">LinkedIn</a></li>
+  </ul>
+  <p class="footer-note">contact@nayepankh.com · +91 83185 00748</p>
+</footer>
+
+</body>
+</html>
